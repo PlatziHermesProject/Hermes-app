@@ -1,0 +1,67 @@
+@import "./../../../../../styles.scss";
+:host {
+  min-height: 100%;
+}
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $fontArchivo;
+  background-color: $strongBlue;
+  height: calc(100vh - 3rem);
+  &__info {
+    position: relative;
+    left: 2%;
+    top: -6%;
+    text-align: right;
+    width: 450px;
+    &--title {
+      color: $pink;
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    &--subtitle {
+      color: $weakBlue;
+      font-size: 1.7rem;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+    }
+    &--text {
+      color: $white;
+      font-size: 1.5rem;
+      font-weight: normal;
+    }
+    &--buttons {
+      margin-top: 6rem;
+      button {
+        @extend .buttonLandingPage;
+      }
+      .buttons__primaryButton {
+        background-color: $tertiaryBlue;
+        color: $white;
+        font-weight: bold;
+        &:hover {
+          color: $pink;
+        }
+      }
+      .buttons__secondaryButton {
+        background-color: $pink;
+        color: $strongBlue;
+        font-weight: bold;
+        &:hover {
+          color: $purple;
+        }
+      }
+    }
+  }
+  &__image {
+    align-self: flex-end;
+    figure {
+      width: 100%;
+      img {
+        max-width: 100%;
+        margin-left: 5%;
+      }
+    }
+  }
+}

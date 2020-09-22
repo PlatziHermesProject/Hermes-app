@@ -1,0 +1,56 @@
+@import "./../../../../styles.scss";
+.header {
+  width: 100%;
+  background-color: $strongBlue;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  color: $white;
+  font-family: $fontArchivo;
+  height: 3rem;
+  align-items: center;
+  &__logo {
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 1.2rem;
+    figure {
+      width: 61px;
+      margin-right: 1rem;
+      img {
+        max-width: 100%;
+      }
+    }
+    h1 {
+      font-weight: 500;
+    }
+  }
+  &__options {
+    min-width: 300px;
+    margin-right: 1.2rem;
+    ul {
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+      align-items: center;
+      li {
+        padding-right: 10px;
+        a {
+          color: white;
+          text-decoration: none;
+          &:hover {
+            color: $pink;
+          }
+        }
+      }
+    }
+    &--goToApp {
+      a {
+        border: 2px white solid;
+        padding: 0.4rem 1rem;
+        &:hover {
+          border: 2px $pink solid;
+        }
+      }
+    }
+  }
+}

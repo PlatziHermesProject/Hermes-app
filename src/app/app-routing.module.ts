@@ -32,6 +32,21 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/chat/chat.module').then((m) => m.ChatModule),
   },
+  {
+    path: 'inbox',
+    loadChildren: () =>
+      import('./pages/inbox/inbox.module').then((m) => m.InboxModule),
+  },
+  {
+    path: 'write',
+    loadChildren: () =>
+      import('./pages/write/write.module').then((m) => m.WriteModule),
+  },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./pages/profile/profile.module').then((m) => m.ProfileModule),
+  },
 ];
 
 @NgModule({
