@@ -17,19 +17,15 @@
     width: 450px;
     &--title {
       color: $pink;
-      font-size: 3rem;
-      font-weight: bold;
+      @extend .title;
     }
     &--subtitle {
       color: $weakBlue;
-      font-size: 1.7rem;
-      margin-bottom: 1.5rem;
-      font-weight: 500;
+      @extend .subtitle;
     }
     &--text {
       color: $white;
-      font-size: 1.5rem;
-      font-weight: normal;
+      @extend .text;
     }
     &--buttons {
       margin-top: 6rem;
@@ -58,6 +54,50 @@
     align-self: flex-end;
     figure {
       width: 100%;
+      img {
+        max-width: 100%;
+        margin-left: 5%;
+      }
+    }
+  }
+}
+.whatis {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $fontArchivo;
+  background-color: $pink;
+  height: calc(100vh);
+  &__info {
+    position: relative;
+    right: 2%;
+    top: 3%;
+    width: 395px;
+    &--title {
+      color: $strongBlue;
+      @extend .title;
+    }
+    &--subtitle {
+      color: $purple;
+      @extend .subtitle;
+    }
+    &--text {
+      color: $strongBlue;
+      margin-bottom: 3.2rem;
+      @extend .text;
+    }
+    &--link {
+      color: $strongBlue;
+      @extend .text;
+      &:hover {
+        color: $purple;
+      }
+    }
+  }
+  &__image {
+    align-self: center;
+    figure {
+      width: 85%;
       img {
         max-width: 100%;
         margin-left: 5%;
