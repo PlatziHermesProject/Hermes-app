@@ -7,9 +7,27 @@
   </section>
   <section class="header__options">
     <ul>
-      <li class="header__options--whatIs"><a href="">What is?</a></li>
-      <li class="header__options--aboutUs"><a href="">About us</a></li>
-      <li class="header__options--goToApp"><a href="">Go to app</a></li>
+      <li class="header__options--whatIs">
+        <a
+          [routerLink]="['/']"
+          fragment="whatis"
+          routerLinkActive="router-link-active"
+          >What is?</a
+        >
+      </li>
+      <li class="header__options--aboutUs">
+        <a
+          [routerLink]="['/']"
+          fragment="aboutus"
+          routerLinkActive="router-link-active"
+          >About us</a
+        >
+      </li>
+      <li class="header__options--goToApp">
+        <a [routerLink]="['/login']" routerLinkActive="router-link-active"
+          >Go to app</a
+        >
+      </li>
     </ul>
   </section>
 </nav>
