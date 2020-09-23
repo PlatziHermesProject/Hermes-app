@@ -1,0 +1,18 @@
+@import "../../profile.component.scss";
+
+.letters{
+  @include background;
+  &__content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    @media screen and (min-width: 320px) and (max-width: 480px) {
+      grid-template-columns: 1fr;
+    }
+    @media screen and (min-width: 480px) and (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
