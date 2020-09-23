@@ -1,5 +1,6 @@
+import { NotFoundComponent } from './pages/not-found/components/not-found/not-found.component';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 const routes: Routes = [
   {
@@ -32,10 +33,31 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/chat/chat.module').then((m) => m.ChatModule),
   },
+  {
+    path: 'inbox',
+    loadChildren: () =>
+      import('./pages/inbox/inbox.module').then((m) => m.InboxModule),
+  },
+  {
+    path: 'write',
+    loadChildren: () =>
+      import('./pages/write/write.module').then((m) => m.WriteModule),
+  },
+  {
+    path: 'profile',
+    loadChildren: () =>
+      import('./pages/profile/profile.module').then((m) => m.ProfileModule),
+  },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      anchorScrolling: 'enabled',
+      preloadingStrategy: PreloadAllModules,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

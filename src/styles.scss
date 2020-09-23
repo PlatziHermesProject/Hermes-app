@@ -7,5 +7,39 @@ body,
   margin: 0;
   box-sizing: border-box;
 }
-
 $fontArchivo: "Archivo", sans-serif;
+
+//Paleta de colores
+$gray: #f0f0f0;
+$pink: #fdb4b1;
+$blue: #45648a;
+$strongBlue: #19375e;
+$weakBlue: #05b4e2;
+$white: #ffffff;
+$tertiaryBlue: #005780;
+$purple: #003de2;
+
+.buttonLandingPage {
+  width: 200px;
+  height: 50px;
+  border: none;
+  margin-right: 0.6rem;
+  font-size: 1.5rem;
+  box-shadow: -1px 3px 6px 0px rgba(43, 40, 40, 0.815);
+  &:hover {
+    cursor: pointer;
+  }
+}
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+}
+.subtitle {
+  font-size: 1.7rem;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+.text {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
