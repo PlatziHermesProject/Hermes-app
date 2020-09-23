@@ -20,7 +20,7 @@
     </figure>
   </section>
 </div>
-<div class="whatis">
+<div id="whatis" class="whatis">
   <section class="whatis__image">
     <figure>
       <img
@@ -40,6 +40,34 @@
       tenetur illo deserunt. Aperiam atque commodi minus pariatur magnam, ex
       fuga blanditiis dicta explicabo nobis! Rem consequatur non similique quia.
     </p>
-    <a href="" class="whatis__info--link"> Learn more </a>
+    <a
+      href="https://www.notion.so/Hermes-Team-d119d2dee4a84a45abbc593d48cbbfa5"
+      target="_blank"
+      class="whatis__info--link"
+    >
+      Learn more
+    </a>
+  </section>
+</div>
+<div class="aboutus" id="aboutus">
+  <section class="aboutus__info">
+    <h2 class="aboutus__info--title">About us</h2>
+    <h3 class="aboutus__info--subtitle">
+      A nice and short description for the team
+    </h3>
+  </section>
+  <section class="aboutus__members">
+    <div *ngFor="let member of members" class="aboutus__members--member">
+      <figure class="member__image">
+        <div class="member__image--role">
+          {{ member.role }}
+        </div>
+        <img [src]="member.image" alt="Handsome guy" />
+      </figure>
+      <h4 class="member__title">{{ member.name }}</h4>
+      <a target="_blank" [href]="member.githubLink" class="member__subtitle">{{
+        member.github
+      }}</a>
+    </div>
   </section>
 </div>
