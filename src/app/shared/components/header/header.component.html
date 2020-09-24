@@ -1,11 +1,15 @@
 <nav class="header">
-  <section class="header__logo">
+  <a
+    class="header__logo"
+    [routerLink]="['/landing']"
+    routerLinkActive="router-link-active"
+  >
     <figure>
       <img src="./../../../assets/images/hermes.svg" alt="logo de Hermes" />
     </figure>
     <h1>Hermes</h1>
-  </section>
-  <section class="header__options">
+  </a>
+  <section class="header__options" *ngIf="section === 'landing'">
     <ul>
       <li class="header__options--whatIs">
         <a
