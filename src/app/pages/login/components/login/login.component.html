@@ -1,1 +1,62 @@
-<p>login works!</p>
+<app-header [section]="section"></app-header>
+<section class="login">
+  <div class="login__card">
+    <section class="login__card--image">
+      <figure>
+        <img
+          src="assets/images/happiness_writing.jpeg"
+          alt="A happy girl writting on her laptop"
+        />
+      </figure>
+    </section>
+    <section class="login__card--form">
+      <h2 class="form__title">Welcome back</h2>
+      <h3 class="form__subtitle">
+        New here?
+        <a [routerLink]="['/register']" routerLinkActive="router-link-active"
+          >Create an account</a
+        >
+      </h3>
+      <form (ngSubmit)="signIn($event)" [formGroup]="form">
+        <div class="form__group">
+          <label for="email">Email</label> <br />
+          <input
+            placeholder="Type your email"
+            type="text"
+            id="email"
+            formControlName="email"
+          />
+        </div>
+        <div class="form__group">
+          <label for="password">Password</label>
+          <a href="">Forgot your password?</a>
+          <input
+            placeholder="Type your password"
+            type="password"
+            id="password"
+            formControlName="password"
+          />
+        </div>
+        <label class="form__switch">
+          <input id="switch" type="checkbox" class="form__switch--checkbox" />
+          <span class="form__switch--slider-round"></span>
+        </label>
+        <label for="switch" class="form__rememberMe">Remember me</label>
+        <button class="form__button" [disabled]="form.invalid">Sign in</button>
+      </form>
+      <div class="form__otherOptions">
+        <hr class="form__otherOptions--left" />
+        <span>or sign in with</span>
+        <hr class="form__otherOptions--right" />
+      </div>
+      <button class="form__button--facebook">
+        Facebook
+        <!-- <img src="assets/images/facebook.svg" alt="Facebook" /> Facebook -->
+      </button>
+      <button class="form__button--google">
+        Google
+        <!-- <img src="assets/images/google.svg" alt="Google" /> Google -->
+      </button>
+    </section>
+  </div>
+</section>
