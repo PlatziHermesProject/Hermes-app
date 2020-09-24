@@ -20,6 +20,14 @@
       <form (ngSubmit)="signIn($event)" [formGroup]="form">
         <div class="form__group">
           <label for="email">Email</label> <br />
+          <span *ngIf="emailField.errors && emailField.dirty">
+            <span class="form__error" *ngIf="emailField.hasError('required')"
+              >Please write your email
+            </span>
+            <span class="form__error" *ngIf="emailField.hasError('email')">
+              Please write your email correctly</span
+            >
+          </span>
           <input
             placeholder="Type your email"
             type="text"
@@ -30,6 +38,11 @@
         <div class="form__group">
           <label for="password">Password</label>
           <a href="">Forgot your password?</a>
+          <span *ngIf="passwordField.errors && passwordField.dirty">
+            <span class="form__error" *ngIf="passwordField.hasError('required')"
+              >Please write your password</span
+            >
+          </span>
           <input
             placeholder="Type your password"
             type="password"

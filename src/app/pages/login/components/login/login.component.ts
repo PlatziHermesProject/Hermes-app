@@ -27,4 +27,10 @@ export class LoginComponent implements OnInit {
       password: ['', [Validators.required]],
     });
   }
+  get emailField(): string | any {
+    return this.form.get('email');
+  }
+  get passwordField(): string | any {
+    return this.form.get('password');
+  }
 }
