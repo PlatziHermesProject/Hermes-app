@@ -8,6 +8,6 @@ import { RegisterRoutingModule } from './register-routing.module';
 
 @NgModule({
   declarations: [RegisterComponent],
-  imports: [CommonModule, RegisterRoutingModule, SharedModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, RegisterRoutingModule, SharedModule],
 })
 export class RegisterModule {}
