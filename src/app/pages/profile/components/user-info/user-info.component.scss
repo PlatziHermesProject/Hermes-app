@@ -70,3 +70,9 @@
   //   grid-template-columns: repeat(2, 1fr);
   // }
 }
+
+
+.material-icons {
+  @extend .material-icons;
+  color: $gray;
+}

@@ -7,10 +7,8 @@ import { SharedModule } from '../../shared/shared.module';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { MyLettersComponent } from './components/my-letters/my-letters.component';
 
-import { MaterialModule } from '../../material/material.module';
-
 @NgModule({
   declarations: [ProfileComponent, UserInfoComponent, MyLettersComponent],
-  imports: [CommonModule, ProfileRoutingModule, SharedModule, MaterialModule],
+  imports: [CommonModule, ProfileRoutingModule, SharedModule],
 })
 export class ProfileModule {}
