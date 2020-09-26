@@ -9,11 +9,19 @@
     </figure>
     <h1>Hermes</h1>
   </a>
-  <section class="header__options" *ngIf="section === 'landing'">
-    <ul>
+  <section class="header__options">
+    <figure
+      class="header__options--notifications"
+      *ngIf="
+        section !== 'landing' && section !== 'login' && section !== 'register'
+      "
+    >
+      <i class="material-icons">notifications</i>
+    </figure>
+    <ul *ngIf="section === 'landing'">
       <li class="header__options--whatIs">
         <a
-          [routerLink]="['/']"
+          [routerLink]="['/landing']"
           fragment="whatis"
           routerLinkActive="router-link-active"
           >What is?</a
@@ -21,7 +29,7 @@
       </li>
       <li class="header__options--aboutUs">
         <a
-          [routerLink]="['/']"
+          [routerLink]="['/landing']"
           fragment="aboutus"
           routerLinkActive="router-link-active"
           >About us</a

@@ -1,0 +1,58 @@
+<div class="sidenav">
+  <nav class="sidenav__navigation">
+    <a class="navigation__header" routerLink="/profile">
+      <figure class="navigation__header--user">
+        <img src="assets/images/User.svg" alt="" />
+      </figure>
+    </a>
+    <!-- <a
+        class="toggle-mob-menu"
+        routerLink="/home"
+        aria-expanded="false"
+        aria-label="open menu"
+      >
+        <mat-icon>home</mat-icon>
+      </a> -->
+    <ul class="navigation__section">
+      <li class="navigation__section--item">
+        <a class="item__link" routerLink="/inbox" routerLinkActive="active">
+          <span class="item__link--name"
+            ><i class="material-icons">email</i> Inbox</span
+          >
+        </a>
+      </li>
+      <li class="navigation__section--item">
+        <a class="item__link" routerLink="/write" routerLinkActive="active">
+          <span class="item__link--name"
+            ><i class="material-icons">history_edu</i>Write</span
+          >
+        </a>
+      </li>
+      <li class="navigation__section--item">
+        <a class="item__link" routerLink="/feel-bad" routerLinkActive="active">
+          <span class="item__link--name"
+            ><i class="material-icons">sentiment_very_dissatisfied</i>Feel
+            bad?</span
+          >
+        </a>
+      </li>
+      <li class="navigation__section--item">
+        <a class="item__link" routerLink="/chat" routerLinkActive="active">
+          <span class="item__link--name"
+            ><i class="material-icons">chat</i>Chat</span
+          >
+        </a>
+      </li>
+
+      <!-- more list items here -->
+
+      <li class="navigation__section--item">
+        <button (click)="logout()">
+          <span class="item__link--name"
+            ><i class="material-icons">exit_to_app</i>Salir</span
+          >
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
