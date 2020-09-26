@@ -1,3 +1,4 @@
+import { LayoutComponent } from './pages/layout/components/layout/layout.component';
 import { NotFoundComponent } from './pages/not-found/components/not-found/not-found.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
@@ -5,8 +6,41 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'landing',
-    pathMatch: 'full',
+    component: LayoutComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'inbox',
+        pathMatch: 'full',
+      },
+      {
+        path: 'feel-bad',
+        loadChildren: () =>
+          import('./pages/feel-bad/feel-bad.module').then(
+            (m) => m.FeelBadModule
+          ),
+      },
+      {
+        path: 'chat',
+        loadChildren: () =>
+          import('./pages/chat/chat.module').then((m) => m.ChatModule),
+      },
+      {
+        path: 'inbox',
+        loadChildren: () =>
+          import('./pages/inbox/inbox.module').then((m) => m.InboxModule),
+      },
+      {
+        path: 'write',
+        loadChildren: () =>
+          import('./pages/write/write.module').then((m) => m.WriteModule),
+      },
+      {
+        path: 'profile',
+        loadChildren: () =>
+          import('./pages/profile/profile.module').then((m) => m.ProfileModule),
+      },
+    ],
   },
   {
     path: 'landing',
@@ -19,36 +53,17 @@ const routes: Routes = [
       import('./pages/login/login.module').then((m) => m.LoginModule),
   },
   {
-    path: 'feel-bad',
-    loadChildren: () =>
-      import('./pages/feel-bad/feel-bad.module').then((m) => m.FeelBadModule),
-  },
-  {
     path: 'register',
     loadChildren: () =>
       import('./pages/register/register.module').then((m) => m.RegisterModule),
   },
   {
-    path: 'chat',
+    path: '**',
     loadChildren: () =>
-      import('./pages/chat/chat.module').then((m) => m.ChatModule),
+      import('./pages/not-found/not-found.module').then(
+        (m) => m.NotFoundModule
+      ),
   },
-  {
-    path: 'inbox',
-    loadChildren: () =>
-      import('./pages/inbox/inbox.module').then((m) => m.InboxModule),
-  },
-  {
-    path: 'write',
-    loadChildren: () =>
-      import('./pages/write/write.module').then((m) => m.WriteModule),
-  },
-  {
-    path: 'profile',
-    loadChildren: () =>
-      import('./pages/profile/profile.module').then((m) => m.ProfileModule),
-  },
-  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

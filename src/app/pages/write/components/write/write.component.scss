@@ -1,12 +1,15 @@
 @import "../../../../../styles.scss";
+:host {
+  @extend .page-vision;
+}
 
-.header{
+.header {
   width: 100%;
   height: 3em;
   // background-color: blue;
 }
 
-.content{
+.content {
   margin: auto;
   width: calc(100% - 4em);
   height: calc(100vh - 3em);
@@ -17,22 +20,22 @@
   justify-content: center;
   flex-direction: column;
   @media screen and (min-width: 320px) and (max-width: 480px) {
-    padding: 1em;  
+    padding: 1em;
     width: calc(100% - 1em);
     max-height: calc(100vh - 3em);
   }
   @media screen and (min-width: 480px) and (max-width: 768px) {
-    padding: 1em;  
+    padding: 1em;
     width: calc(100% - 1em);
     max-height: calc(100vh - 3em);
   }
 
-  &__title{
+  &__title {
     @extend .title;
     text-align: center;
   }
 
-  &__letter{
+  &__letter {
     background-color: $pink;
     width: 35em;
     margin: 2em;
@@ -50,7 +53,7 @@
     }
   }
 
-  &__actions{
+  &__actions {
     width: 50%;
     display: flex;
     justify-content: space-around;

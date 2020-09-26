@@ -1,9 +1,9 @@
 @import "../../../../../styles.scss";
 
-.section{
+.section {
   display: flex;
   flex-direction: column;
-  &__btn{
+  &__btn {
     @extend .material-icons;
     width: 50px;
     height: 50px;
@@ -12,12 +12,12 @@
     background-color: $white;
     color: $tertiaryBlue;
     &:focus,
-    &:active{
+    &:active {
       outline: none;
       transform: scale(0.95);
     }
   }
-  & span{
+  & span {
     @extend .text;
     margin-top: 5px;
     text-align: center;

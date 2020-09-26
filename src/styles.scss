@@ -13,14 +13,12 @@ $purple: #003de2;
 $red: #ea4335;
 
 html,
-body,
-* {
+body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: $fontArchivo;
 }
-
 .buttonLandingPage {
   width: 200px;
   height: 50px;
@@ -45,9 +43,8 @@ body,
   font-size: 1.5rem;
   font-weight: normal;
 }
-
 .material-icons {
-  font-family: 'Material Icons';
+  font-family: "Material Icons";
   font-weight: normal;
   font-style: normal;
   font-size: 24px;
@@ -61,5 +58,11 @@ body,
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: 'liga';
+  font-feature-settings: "liga";
+}
+.page-vision {
+  position: absolute;
+  left: 220px;
+  min-height: calc(100vh - 90px);
+  min-width: calc(100% - 220px);
 }
