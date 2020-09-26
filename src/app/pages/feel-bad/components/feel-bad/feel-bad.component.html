@@ -1,1 +1,47 @@
-<p>feel-bad works!</p>
+<section class="hero">
+  <div class="hero__subtitle">
+    <h3>Why aren't you happy?</h3>
+  </div>
+  <div class="hero__reasons">
+    <ul>
+      <li class="hero__reasons--item">
+        <strong>You have</strong><br />
+        a decent life
+      </li>
+      <li class="hero__reasons--item">
+        <strong>You have</strong><br />
+        a good job
+      </li>
+      <li class="hero__reasons--item">
+        <strong>You should</strong><br />
+        be grateful
+      </li>
+      <li class="hero__reasons--item">
+        <strong>You should</strong><br />
+        be positive
+      </li>
+    </ul>
+  </div>
+  <h2 class="hero__title">
+    Are you <br />
+    even trying?
+  </h2>
+</section>
+<section class="organizations">
+  <h4 class="organizations__intro">Mental health organizations</h4>
+  <div class="organizations__container">
+    <div
+      class="organizations__container--item"
+      *ngFor="let organization of organizations"
+    >
+      <figure class="item__image">
+        <img [src]="organization.image" alt="Organization image" />
+      </figure>
+      <div class="item__info">
+        <h5 class="item__info--title">{{ organization.name }}</h5>
+        <p class="item__info--phone">{{ organization.phone }}</p>
+        <h5 class="item__info--country">{{ organization.country }}</h5>
+      </div>
+    </div>
+  </div>
+</section>
