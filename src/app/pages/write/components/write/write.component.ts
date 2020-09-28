@@ -11,5 +11,4 @@ export class WriteComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

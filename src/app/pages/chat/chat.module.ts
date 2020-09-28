@@ -4,8 +4,10 @@ import { CommonModule } from '@angular/common';
 
 import { ChatRoutingModule } from './chat-routing.module';
 
+import { PeopleComponent } from './components/people/people.component';
+
 @NgModule({
-  declarations: [ChatComponent],
+  declarations: [ChatComponent, PeopleComponent],
   imports: [CommonModule, ChatRoutingModule],
 })
 export class ChatModule {}

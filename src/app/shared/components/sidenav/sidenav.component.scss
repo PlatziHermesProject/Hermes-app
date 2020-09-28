@@ -6,7 +6,7 @@
 }
 .sidenav {
   position: fixed;
-  height: calc(100vh - 3rem);
+  height: calc(100vh - 3em);
   left: 0;
   right: 0;
   bottom: 0;
@@ -27,6 +27,7 @@
         display: flex;
         margin: 0 25px;
         align-items: center;
+        justify-content: center;
         max-width: 100%;
         h2 {
           padding-top: 8px;
