@@ -3,17 +3,11 @@
   @extend .page-vision;
 }
 
-.header {
-  width: 100%;
-  height: 3em;
-  // background-color: blue;
-}
-
-.content {
+.form{
+  height: calc(100% - calc(5% + 4em));
+  max-height: calc(100% - calc(5% + 4em));
+  width: calc(100% - 220px);
   margin: auto;
-  width: calc(100% - 4em);
-  height: calc(100vh - 3em);
-  max-height: calc(100vh - 3em);
   padding: 2em;
   display: flex;
   align-items: center;
@@ -29,16 +23,14 @@
     width: calc(100% - 1em);
     max-height: calc(100vh - 3em);
   }
-
   &__title {
     @extend .title;
     text-align: center;
   }
-
   &__letter {
+    margin: 2em;
     background-color: $pink;
     width: 35em;
-    margin: 2em;
     height: 30em;
     border-radius: 10px;
     @media screen and (min-width: 320px) and (max-width: 480px) {
@@ -51,11 +43,77 @@
       width: calc(100% - 2em);
       height: 20em;
     }
+    & .letter__header{
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      & img{
+        width: 5em;
+        height: 5em;
+        margin: 1em;
+        @media screen and (min-width: 320px) and (max-width: 480px) {
+          width: 4em;
+          height: 4em;
+          margin: 1em;
+        }
+        @media screen and (min-width: 480px) and (max-width: 768px) {
+          width: 4em;
+          height: 4em;
+          margin: 1em;
+        }
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+          width: 5em;
+          height: 5em;
+          margin: 1em;
+        }
+      }
+      &--name{
+        @extend .subtitle;
+        margin: 0;
+      }
+    }
+    & .letter__content{
+      @extend .text;
+      color: $strongBlue;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 1em;
+      & textarea[name="feeling"]{
+        font-family: $fontArchivo;
+        margin-top: 0.5em;
+        background-color: transparent;
+        font-size: 1em;
+        width: 100%;
+        height: 7em;
+        max-height: 7em;
+        resize: none;
+        border: none;
+        @media screen and (min-width: 320px) and (max-width: 480px) {
+          height: 6em;
+          max-height: 6em;
+        }
+        @media screen and (min-width: 480px) and (max-width: 768px) {
+          height: 7em;
+          max-height: 7em;
+        }
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+          height: 8em;
+          max-height: 8em;
+        }
+        &:focus{
+          outline: none;
+        }
+        &::placeholder{
+          font-size: 1em;
+        }
+      }
+    }
   }
-
-  &__actions {
+  &__footer {
     width: 50%;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     @media screen and (min-width: 320px) and (max-width: 480px) {
       width: 100%;
@@ -65,6 +123,30 @@
     }
     @media screen and (min-width: 768px) and (max-width: 1024px) {
       width: 50%;
+    }
+    .btn{
+      @extend .material-icons;
+        margin: auto;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid $tertiaryBlue;
+        background-color: $white;
+        color: $tertiaryBlue;
+        transition: background 0.2s, color 0.2s;
+        &:focus,
+        &:active {
+          outline: none;
+          transform: scale(0.95);
+          background-color: $tertiaryBlue;
+          color: $white;
+        }
+    }
+    & span {
+      @extend .text;
+      margin-top: 5px;
+      text-align: center;
+      color: $strongBlue;
     }
   }
 }

@@ -1,6 +1,22 @@
-<header class="header">hola</header>
-<section class="content">
-  <h1 class="content__title">How was your day?</h1>
-  <app-write-input class="content__letter"></app-write-input>
-  <app-actions class="content__actions"></app-actions>
-</section>
+<form class="form">
+  <h1 class="form__title">How was your day?</h1>
+  <section class="form__letter">
+    <section class="letter__header">
+      <img src="../../../../assets/images/User.svg" alt="User" />
+      <h2 class="letter__header--name">C</h2>
+    </section>
+    <section class="letter__content">
+      <label for="feeling">Write your message</label>
+      <textarea
+      name="feeling"
+      id="feeling"
+      form="inputForm"
+      placeholder="Write here"
+      ></textarea>
+    </section>
+  </section>
+  <section class="form__footer">
+    <button class="btn" type="submit">send</button>
+    <span>Send</span>
+  </section>
+</form>

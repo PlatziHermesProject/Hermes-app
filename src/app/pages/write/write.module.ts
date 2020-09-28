@@ -3,11 +3,16 @@ import { CommonModule } from '@angular/common';
 import { WriteRoutingModule } from './write-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 import { WriteComponent } from './components/write/write.component';
-import { InputComponent } from './components/input/input.component';
-import { ActionsComponent } from './components/actions/actions.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [WriteComponent, InputComponent, ActionsComponent],
-  imports: [CommonModule, WriteRoutingModule, SharedModule],
+  declarations: [WriteComponent],
+  imports: [
+    CommonModule,
+    WriteRoutingModule,
+    SharedModule,
+    ReactiveFormsModule,
+    FormsModule
+  ],
 })
 export class WriteModule {}

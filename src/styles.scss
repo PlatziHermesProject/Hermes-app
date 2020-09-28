@@ -60,11 +60,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: "liga";
 }
+
 .page-vision {
   position: absolute;
+  z-index: 0;
   left: 220px;
-  min-height: calc(100vh - 90px);
-  min-width: calc(100% - 220px);
   top: 5%;
   bottom: 0;
+  height: calc(100vh - 3em);
+  width: calc(100% - 220px);
 }
