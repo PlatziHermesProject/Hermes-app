@@ -9,7 +9,5 @@ export class HeaderComponent implements OnInit {
   @Input() section: string;
   constructor() {}
 
-  ngOnInit(): void {
-    console.log(this.section);
-  }
+  ngOnInit(): void { }
 }
