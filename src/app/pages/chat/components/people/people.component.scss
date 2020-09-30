@@ -1,0 +1,50 @@
+@import "../../../../../styles.scss";
+
+h1{
+   @extend .title;
+   margin: 0.3em 0 0.2em;
+}
+.people{
+   width: 13em;
+   height: calc(100% - 2em);
+   background-color: $white;
+   // border: 1px solid $tertiaryBlue;
+   overflow-y: auto;
+   &__btn{
+      border: none;
+      background-color: $white;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding: 1em;
+      border-bottom: 0.5px solid $tertiaryBlue;
+      transition: background 0.2s, color 0.2s;
+      & img{
+         width: 3em;
+      }
+      & span{
+         color: $tertiaryBlue;
+         font-family: $fontArchivo;
+         margin-left: 0.5em;
+         font-size: 1.3em;
+      };
+      &:focus,
+      &:active{
+         @extend .active;
+         outline: none;
+         background-color: $tertiaryBlue;
+         border-bottom: 0.5px solid $white;
+         & span{
+            color: $white;
+         }
+      }
+   }
+   & .active{
+      outline: none;
+      background-color: $tertiaryBlue;
+      border-bottom: 0.5px solid $white;
+      & span{
+         color: $white;
+      }
+   }
+}

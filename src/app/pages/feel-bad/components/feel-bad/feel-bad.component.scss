@@ -1,0 +1,86 @@
+@import "../../../../../styles.scss";
+:host {
+  @extend .page-vision;
+  background-color: $strongBlue;
+}
+.hero {
+  margin: 0 5%;
+  &__subtitle {
+    border-top: 2px solid $pink;
+    border-bottom: 2px solid $pink;
+    h3 {
+      font-size: 2.5rem;
+      margin: 1% auto;
+      font-weight: bold;
+      color: $pink;
+    }
+  }
+  &__reasons {
+    border-bottom: 2px solid $pink;
+    ul {
+      display: flex;
+      list-style: none;
+      justify-content: space-between;
+      padding: unset;
+    }
+    &--item {
+      width: 10%;
+      color: $white;
+      line-height: 1.6em;
+      strong {
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: $pink;
+      }
+    }
+  }
+  &__title {
+    color: white;
+    font-weight: bold;
+    font-size: 9rem;
+    margin: unset;
+  }
+}
+.organizations {
+  margin: 0 5%;
+  &__intro {
+    font-weight: normal;
+    color: $weakBlue;
+    font-size: 1.8rem;
+    margin-bottom: 0;
+  }
+  &__container {
+    display: flex;
+    &--item {
+      display: flex;
+      width: 50%;
+      .item__image {
+        height: 260px;
+        margin-left: 0;
+        img {
+          max-height: 100%;
+        }
+      }
+      .item__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        &--title {
+          color: $pink;
+          font-weight: bold;
+          font-size: 1.5rem;
+        }
+        &--phone {
+          @extend .item__info--title;
+          color: $white;
+          margin: unset;
+        }
+        &--country {
+          font-weight: normal;
+          font-size: 1.2rem;
+          color: $weakBlue;
+        }
+      }
+    }
+  }
+}

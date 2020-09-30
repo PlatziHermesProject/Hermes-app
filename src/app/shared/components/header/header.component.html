@@ -1,0 +1,45 @@
+<nav class="header">
+  <a
+    class="header__logo"
+    [routerLink]="['/landing']"
+    routerLinkActive="router-link-active"
+  >
+    <figure>
+      <img src="./../../../assets/images/hermes.svg" alt="logo de Hermes" />
+    </figure>
+    <h1>Hermes</h1>
+  </a>
+  <section class="header__options">
+    <figure
+      class="header__options--notifications"
+      *ngIf="
+        section !== 'landing' && section !== 'login' && section !== 'register'
+      "
+    >
+      <i class="material-icons">notifications</i>
+    </figure>
+    <ul *ngIf="section === 'landing'">
+      <li class="header__options--whatIs">
+        <a
+          [routerLink]="['/landing']"
+          fragment="whatis"
+          routerLinkActive="router-link-active"
+          >What is?</a
+        >
+      </li>
+      <li class="header__options--aboutUs">
+        <a
+          [routerLink]="['/landing']"
+          fragment="aboutus"
+          routerLinkActive="router-link-active"
+          >About us</a
+        >
+      </li>
+      <li class="header__options--goToApp">
+        <a [routerLink]="['/login']" routerLinkActive="router-link-active"
+          >Go to app</a
+        >
+      </li>
+    </ul>
+  </section>
+</nav>

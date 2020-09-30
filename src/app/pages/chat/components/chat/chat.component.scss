@@ -1,0 +1,86 @@
+@import "../../../../../styles.scss";
+:host {
+  @extend .page-vision;
+}
+
+.content{
+  height: calc(100% - calc(5% + 4em));
+  max-height: calc(100% - calc(5% + 4em));
+  width: calc(100% - 220px);
+  margin: auto;
+  padding: 2em;
+  display: flex;
+  &__chat{
+    align-self: center;
+    margin: 3em 0 0 3em;
+    padding: 1em;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    & .chat__messages{
+      width: 100%;
+      height: 100%;
+      background-color: $gray;
+      overflow-y: auto;
+      &--from{
+        float: left;
+        margin: 0.5em;
+        padding: 0.5em 1em;
+        border-radius: 10px;
+        display: inline-flex;
+        width: auto;
+        background-color: $strongBlue;
+        color: $white;
+        & img{
+          width: 3em;
+        }
+        & p{
+          margin-left: 1em;
+        }
+        & .time{
+          font-size: 12px;
+          position: relative;
+          bottom: 15px;
+          left: 10px;
+        }
+      }
+      &--to{
+        float: right;
+        margin: 0.5em;
+        padding: 0.5em 1em;
+        border-radius: 10px;
+        display: inline-flex;
+        width: auto;
+        background-color: $weakBlue;
+        color: $white;
+        & img{
+          width: 3em;
+        }
+        & p{
+          margin-right: 1em;
+        }
+        & .time{
+          font-size: 12px;
+          position: relative;
+          bottom: 15px;
+          right: 10px;
+        }
+      }
+    }
+    & .chat__input{
+      font-size: $fontArchivo;
+      margin-top: 2em;
+      background-color: $gray;
+      padding: 0.5em;
+      border: none;
+      &:focus{
+        outline: none;
+      }
+      &::placeholder{
+        font-family: $fontArchivo;
+        font-size: 14px;
+      }
+    }
+  }
+}

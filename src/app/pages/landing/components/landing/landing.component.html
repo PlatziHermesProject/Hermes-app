@@ -1,0 +1,71 @@
+<app-header [section]="section"></app-header>
+<div class="hero">
+  <section class="hero__info">
+    <h2 class="hero__info--title">Share us your day</h2>
+    <h3 class="hero__info--subtitle">(Don't worry we don't judge)</h3>
+    <p class="hero__info--text">
+      Hermes allows you to share your day with others randomly and anonymously
+    </p>
+    <div class="hero__info--buttons">
+      <button class="buttons__primaryButton">Try it</button>
+      <button class="buttons__secondaryButton">How?</button>
+    </div>
+  </section>
+  <section class="hero__image">
+    <figure>
+      <img
+        src="./../../../../../assets/images/reading.svg"
+        alt="Girl reading"
+      />
+    </figure>
+  </section>
+</div>
+<div id="whatis" class="whatis">
+  <section class="whatis__image">
+    <figure>
+      <img
+        src="./../../../../../assets/images/searching.svg"
+        alt="Girl looking something"
+      />
+    </figure>
+  </section>
+  <section class="whatis__info">
+    <h2 class="whatis__info--title">What is?</h2>
+    <h3 class="whatis__info--subtitle">The more you know</h3>
+    <p class="whatis__info--text">
+      Now days, the technological advances make the life style of their users
+      more productive but also more lonely as they can work from home. No matter
+      how age they have, this isolation life style usually can carry mental
+      issues. Is because of this problematic situation that Hermes project
+      emerge. Hermes want to provide support for people who want to be heard by
+      connect them with other ones who want listen.
+    </p>
+    <a
+      href="https://www.notion.so/Hermes-Team-d119d2dee4a84a45abbc593d48cbbfa5"
+      target="_blank"
+      class="whatis__info--link"
+    >
+      Learn more
+    </a>
+  </section>
+</div>
+<div class="aboutus" id="aboutus">
+  <section class="aboutus__info">
+    <h2 class="aboutus__info--title">About us</h2>
+    <h3 class="aboutus__info--subtitle">Know the team</h3>
+  </section>
+  <section class="aboutus__members">
+    <div *ngFor="let member of members" class="aboutus__members--member">
+      <figure class="member__image">
+        <div class="member__image--role">
+          {{ member.role }}
+        </div>
+        <img [src]="member.image" alt="Handsome guy" />
+      </figure>
+      <h4 class="member__title">{{ member.name }}</h4>
+      <a target="_blank" [href]="member.githubLink" class="member__subtitle">{{
+        member.github
+      }}</a>
+    </div>
+  </section>
+</div>

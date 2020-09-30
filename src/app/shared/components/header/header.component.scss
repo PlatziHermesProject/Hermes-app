@@ -1,0 +1,80 @@
+@import "./../../../../styles.scss";
+.header {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  background-color: $strongBlue;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  color: $white;
+  font-family: $fontArchivo;
+  height: 3em;
+  align-items: center;
+  &__logo {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 1.2rem;
+    font-weight: bold;
+    height: 100%;
+    &:hover {
+      color: $pink;
+    }
+    figure {
+      width: 61px;
+      height: 100%;
+      display: flex;
+      margin: 0 0.3rem;
+
+      img {
+        max-width: 100%;
+      }
+    }
+    h1 {
+      font-weight: 500;
+    }
+  }
+  &__options {
+    min-width: 25rem;
+    margin-right: 1.2rem;
+    justify-content: space-between;
+    ul {
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+      align-items: center;
+      li {
+        padding-right: 10px;
+        a {
+          color: white;
+          text-decoration: none;
+          &:hover {
+            color: $pink;
+          }
+        }
+      }
+    }
+    &--notifications {
+      display: flex;
+      align-items: center;
+      width: 80%;
+      height: 40px;
+      justify-content: flex-end;
+      img {
+        max-width: 30px;
+      }
+    }
+    &--goToApp {
+      a {
+        border: 2px white solid;
+        padding: 0.4rem 1rem;
+        &:hover {
+          border: 2px $pink solid;
+        }
+      }
+    }
+  }
+}
