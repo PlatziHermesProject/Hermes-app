@@ -1,6 +1,7 @@
 @import "./../../../../../styles.scss";
 .hero {
   display: flex;
+  overflow-x: hidden;
   justify-content: center;
   align-items: center;
   font-family: $fontArchivo;
@@ -11,7 +12,7 @@
     left: 2%;
     top: -6%;
     text-align: right;
-    width: 450px;
+    width: 40%;
     &--title {
       color: $pink;
       @extend .title;
@@ -106,7 +107,7 @@
 }
 .aboutus {
   font-family: $fontArchivo;
-  height: calc(100vh);
+  height: calc(25vh);
   &__info {
     width: 100%;
     background-color: $strongBlue;
@@ -182,6 +183,11 @@
 // / RESPONSIVE
 //    ========================================================================= /
 @media (min-width: 1024px) and (max-width: 1199px) {
+  .hero {
+    &__info {
+      width: 70%;
+    }
+  }
   .aboutus {
     &__members--member {
       height: 310px;
@@ -196,6 +202,7 @@
       top: 10vh;
       left: unset;
       text-align: center;
+      width: 50%;
     }
     &__image {
       figure {
@@ -208,7 +215,7 @@
   .whatis {
     flex-direction: column-reverse;
     &__info {
-      top: 10vh;
+      top: 4vh;
       width: 50%;
     }
     &__image {
@@ -220,6 +227,7 @@
     }
   }
   .aboutus {
+    height: calc(100vh);
     &__info {
       top: 4%;
     }
