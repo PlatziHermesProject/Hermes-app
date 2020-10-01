@@ -12,4 +12,10 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.section);
   }
+
+  sideMenu(): void {
+    console.log('sideMenu');
+    const showMenu = document.querySelector('ul');
+    showMenu.classList.toggle('showMenu');
+  }
 }

@@ -274,9 +274,6 @@
     }
   }
   .aboutus {
-    &__info {
-      z-index: 1;
-    }
     &__members {
       width: 95%;
       margin: 0 auto;
@@ -329,14 +326,13 @@
   .aboutus {
     &__info {
       top: 4%;
-      z-index: 1;
     }
     &__members {
       width: 80%;
-      margin-top: 5%;
       overflow: hidden;
       &--member {
         width: 65%;
+        margin-top: 20%;
       }
     }
   }
