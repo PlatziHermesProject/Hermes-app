@@ -51,7 +51,7 @@
         &__group {
           margin-top: 5%;
           a {
-            margin-left: 50%;
+            margin-left: 10%;
             color: $blue;
             font-size: 0.8rem;
           }
@@ -183,8 +183,116 @@
           align-items: center;
           width: 75%;
           hr {
-            width: 5rem;
+            width: 4rem;
             margin: 0px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// / RESPONSIVE
+//    ========================================================================= /
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .login {
+    &__card {
+      &--image {
+        overflow: hidden;
+        figure {
+          overflow: hidden;
+          img {
+            max-width: 120%;
+            width: unset;
+          }
+        }
+      }
+      &--form {
+        width: 100%;
+      }
+    }
+  }
+}
+// / Horizontal tablets and normal desktops
+@media (min-width: 768px) and (max-width: 1023px) {
+  .login {
+    &__card {
+      &--image {
+        display: none;
+      }
+      &--form {
+        width: 100%;
+        .form {
+          &__title {
+            line-height: 3rem;
+          }
+          &__group {
+            a {
+              margin-left: 60%;
+            }
+          }
+          &__otherOptions {
+            hr {
+              width: 13rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// / Horizontal mobiles or vertical tablets
+@media (max-width: 767px) {
+  .login {
+    height: calc(180vh - 3rem);
+    &__card {
+      &--image {
+        display: none;
+      }
+      &--form {
+        width: 100%;
+        .form {
+          &__title {
+            line-height: 3rem;
+          }
+          &__group {
+            a {
+              margin-left: 60%;
+            }
+          }
+          &__otherOptions {
+            hr {
+              width: 13rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// / Vertical mobiles
+@media (max-width: 480px) {
+  .login {
+    height: calc(100vh - 3rem);
+    &__card {
+      &--image {
+        display: none;
+      }
+      &--form {
+        width: 100%;
+        .form {
+          &__title {
+            line-height: 3rem;
+          }
+          &__group {
+            a {
+              margin-left: 45%;
+            }
+          }
+          &__otherOptions {
+            hr {
+              width: 9rem;
+            }
           }
         }
       }
