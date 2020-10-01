@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing',
@@ -51,7 +52,12 @@ export class LandingComponent implements OnInit {
       role: 'Frontend',
     },
   ];
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  goLogin(): void {
+    console.log('Go login');
+    this.router.navigate(['/login']);
+  }
 }

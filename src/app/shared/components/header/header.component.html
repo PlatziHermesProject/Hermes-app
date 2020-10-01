@@ -5,7 +5,7 @@
     routerLinkActive="router-link-active"
   >
     <figure>
-      <img src="./../../../assets/images/hermes.svg" alt="logo de Hermes" />
+      <img src="./../../../assets/images/hermes.svg" alt="Hermes logo" />
     </figure>
     <h1>Hermes</h1>
   </a>
@@ -39,6 +39,9 @@
         <a [routerLink]="['/login']" routerLinkActive="router-link-active"
           >Go to app</a
         >
+      </li>
+      <li class="header__options--menu">
+        <i class="material-icons" (click)="sideMenu()">menu</i>
       </li>
     </ul>
   </section>

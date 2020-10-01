@@ -9,5 +9,13 @@ export class HeaderComponent implements OnInit {
   @Input() section: string;
   constructor() {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    console.log(this.section);
+  }
+
+  sideMenu(): void {
+    console.log('sideMenu');
+    const showMenu = document.querySelector('ul');
+    showMenu.classList.toggle('showMenu');
+  }
 }

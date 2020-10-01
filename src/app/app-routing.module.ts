@@ -6,6 +6,11 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'landing',
+    pathMatch: 'full',
+  },
+  {
+    path: '',
     component: LayoutComponent,
     children: [
       {
