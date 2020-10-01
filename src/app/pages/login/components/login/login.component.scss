@@ -1,26 +1,27 @@
 @import "./../../../../../styles.scss";
 .login {
   background-color: $gray;
-  height: calc(100vh - 3rem);
+  height: calc(100vh);
   display: grid;
   place-items: center;
   font-family: $fontArchivo;
   &__card {
     width: 85%;
-    height: 65%;
+    height: 80%;
     display: flex;
+    margin-top: 3%;
     &--image {
       overflow: hidden;
       figure {
         margin: unset;
         width: 100%;
         img {
-          width: 100%;
+          width: 120%;
         }
       }
     }
     &--form {
-      width: 60%;
+      width: 80%;
       background-color: $white;
       display: flex;
       flex-direction: column;
@@ -35,7 +36,7 @@
           color: $blue;
           font-weight: bold;
           width: 75%;
-          margin-top: 10%;
+          margin-top: 30%;
           margin-bottom: 0;
         }
         &__subtitle {
@@ -202,13 +203,19 @@
         figure {
           overflow: hidden;
           img {
-            max-width: 120%;
             width: unset;
+            max-width: 180%;
+            margin-left: -40%;
           }
         }
       }
       &--form {
-        width: 100%;
+        width: 150%;
+        .form {
+          &__title {
+            margin-top: 25%;
+          }
+        }
       }
     }
   }
@@ -225,6 +232,7 @@
         .form {
           &__title {
             line-height: 3rem;
+            margin-top: 15%;
           }
           &__group {
             a {
@@ -254,6 +262,7 @@
         .form {
           &__title {
             line-height: 3rem;
+            margin-top: 15%;
           }
           &__group {
             a {
@@ -283,6 +292,7 @@
         .form {
           &__title {
             line-height: 3rem;
+            margin-top: 30%;
           }
           &__group {
             a {
