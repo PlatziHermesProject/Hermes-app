@@ -1,8 +1,6 @@
 <section class="letters">
-  <h2>My Letters</h2>
-  <section class="letters__content">
-    <app-letter></app-letter>
-    <app-letter></app-letter>
-    <app-letter></app-letter>
-  </section>
+	<h2>My Letters</h2>
+	<section class="letters__content" *ngFor="let item of items">
+		<app-letter [item]="item"></app-letter>
+	</section>
 </section>
