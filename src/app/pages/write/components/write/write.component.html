@@ -6,13 +6,17 @@
       <h2 class="letter__header--name">C</h2>
     </section>
     <section class="letter__content">
-      <label for="feeling" *ngIf="!textField.hasError('required')">Write your message</label>
-      <span *ngIf="textField.hasError('required')">Please write your message</span>
+      <label for="feeling" *ngIf="!textField.hasError('required')"
+        >Write your message</label
+      >
+      <span *ngIf="textField.hasError('required')"
+        >Please write your message</span
+      >
       <textarea
-      name="feeling"
-      id="feeling"
-      formControlName="text"
-      placeholder="Write here"
+        name="feeling"
+        id="feeling"
+        formControlName="text"
+        placeholder="Write here"
       ></textarea>
     </section>
   </section>
@@ -21,3 +25,4 @@
     <span>Send</span>
   </section>
 </form>
+<div id="snackbar"></div>
