@@ -18,11 +18,10 @@ export class WriteComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildForm();
-    this.viewUser();
   }
 
   createLetter(event: Event): void {
-    const user = '7';
+    const user = this.userService.getValueTokenKey('user_id');
     const name = 'Yasare';
     const content = this.textField.value;
     event.preventDefault();
@@ -32,11 +31,6 @@ export class WriteComponent implements OnInit {
         this.textField.reset();
         this.openSnackBar(createLetter.message);
       });
-  }
-
-  viewUser(): any {
-    const user = this.userService.getValueTokenKey('user_id');
-    const email = this.userService.getValueTokenKey('email');
   }
 
   buildForm(): void {
