@@ -36,12 +36,12 @@
     >
       <figure class="item__image">
         <img [src]="organization.image" alt="Organization image" />
+        <div class="item__info">
+          <h5 class="item__info--title">{{ organization.name }}</h5>
+          <p class="item__info--phone">{{ organization.phone }}</p>
+          <h5 class="item__info--country">{{ organization.country }}</h5>
+        </div>
       </figure>
-      <div class="item__info">
-        <h5 class="item__info--title">{{ organization.name }}</h5>
-        <p class="item__info--phone">{{ organization.phone }}</p>
-        <h5 class="item__info--country">{{ organization.country }}</h5>
-      </div>
     </div>
   </div>
 </section>
