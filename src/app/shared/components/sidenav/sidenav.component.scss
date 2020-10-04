@@ -15,10 +15,6 @@
   width: 220px;
   color: $blue;
   background: $white;
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-  
 
   &__navigation {
     display: flex;
@@ -109,6 +105,133 @@
             color: $gray;
             outline: none;
             font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}
+
+// / RESPONSIVE
+//    ========================================================================= /
+@media (min-width: 768px) and (max-width: 1023px) {
+  .sidenav {
+    height: 100px;
+    width: 100%;
+    &__navigation {
+      .navigation__header {
+        &--user {
+          display: none;
+        }
+      }
+      .navigation__section {
+        flex-direction: row;
+        width: 100%;
+        margin: unset;
+        margin-top: -3%;
+        align-items: center;
+        justify-content: space-around;
+        &--item {
+          margin-bottom: 0;
+          min-height: 85px;
+          &:nth-last-child(2) {
+            margin-bottom: 0px;
+          }
+          button {
+            display: none;
+          }
+          .item__link {
+            height: 100px;
+            width: 190px;
+            display: flex;
+            justify-content: center;
+            &--name {
+              display: flex;
+              flex-direction: column;
+              width: 100px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// / Horizontal mobiles or vertical tablets
+@media (max-width: 767px) {
+  .sidenav {
+    height: 75px;
+    width: 100%;
+    &__navigation {
+      .navigation__header {
+        &--user {
+          display: none;
+        }
+      }
+      .navigation__section {
+        flex-direction: row;
+        width: 100%;
+        margin: unset;
+        margin-top: -3%;
+        align-items: center;
+        justify-content: space-around;
+        &--item {
+          margin-bottom: 0;
+          &:nth-last-child(2) {
+            margin-bottom: 0px;
+          }
+          button {
+            display: none;
+          }
+          .item__link {
+            height: 75px;
+            width: 180px;
+            display: flex;
+            justify-content: center;
+            &--name {
+              display: flex;
+              flex-direction: column;
+              width: 100px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// / Vertical mobiles
+@media (max-width: 480px) {
+  .sidenav {
+    height: 100px;
+    width: 100%;
+    &__navigation {
+      .navigation__header {
+        &--user {
+          display: none;
+        }
+      }
+      .navigation__section {
+        flex-direction: row;
+        width: 100%;
+        margin: unset;
+        margin-top: -3%;
+        align-items: center;
+        justify-content: space-around;
+        &--item {
+          margin-bottom: 0;
+          &:nth-last-child(2) {
+            margin-bottom: 0px;
+          }
+          button {
+            display: none;
+          }
+          .item__link {
+            height: 90px;
+            width: 100px;
+            &--name {
+              display: flex;
+              flex-direction: column;
+              width: 100px;
+            }
           }
         }
       }
