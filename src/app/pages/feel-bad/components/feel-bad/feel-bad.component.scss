@@ -100,3 +100,51 @@
     }
   }
 }
+
+// / RESPONSIVE
+//    ========================================================================= /
+@media (min-width: 1024px) and (max-width: 1199px) {
+  :host {
+    height: calc(95vh);
+  }
+}
+// / Horizontal tablets and normal desktops
+@media (min-width: 768px) and (max-width: 1023px) {
+  :host {
+    height: unset;
+  }
+  .hero {
+    margin: 8% 5%;
+  }
+}
+// / Horizontal mobiles or vertical tablets
+@media (max-width: 767px) {
+  :host {
+    height: calc(165vh);
+  }
+  .hero {
+    margin: 8% 5%;
+  }
+  .organizations {
+    margin: -5% 5%;
+  }
+}
+// / Vertical mobiles
+@media (max-width: 480px) {
+  :host {
+    height: calc(135vh);
+  }
+  .hero {
+    margin: 8% 5%;
+    &__reasons--item {
+      width: 20%;
+    }
+  }
+  .organizations {
+    margin: 0% 5%;
+    &__container {
+      flex-direction: column;
+      height: unset;
+    }
+  }
+}
