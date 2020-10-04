@@ -2,11 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RegisterService } from '../../../../core/services/register/register.service';
 import { Router } from '@angular/router';
-import {
-  MatSnackBar,
-  MatSnackBarHorizontalPosition,
-  MatSnackBarVerticalPosition,
-} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -15,14 +10,11 @@ import {
 })
 export class RegisterComponent implements OnInit {
   section = 'register';
-  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
   form: FormGroup;
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private registerService: RegisterService,
-    private _snackBar: MatSnackBar
+    private registerService: RegisterService
   ) {}
 
   ngOnInit(): void {
@@ -35,9 +27,11 @@ export class RegisterComponent implements OnInit {
     const password = this.passwordField.value;
     const name = this.nameField.value;
     if (this.form.valid) {
-      this.registerService.submitRegister(email, password, name)
+      this.registerService
+        .submitRegister(email, password, name)
         .subscribe(({ data: { createAccount } }) => {
-          if (createAccount === 'HS-001') {
+          console.log(createAccount);
+          if (createAccount.code === 'HS-001') {
             this.openSnackBar(createAccount.message);
           } else {
             this.openSnackBar(createAccount.message);
@@ -65,10 +59,12 @@ export class RegisterComponent implements OnInit {
   }
 
   openSnackBar(message: string): any {
-    this._snackBar.open(message, 'x', {
-      duration: 3000,
-      horizontalPosition: this.horizontalPosition,
-      verticalPosition: this.verticalPosition,
-    });
+    console.log({ message });
+    const snackbar = document.getElementById('snackbar');
+    snackbar.innerHTML = message;
+    snackbar.className = 'show';
+    setTimeout(() => {
+      snackbar.className = snackbar.className.replace('show', '');
+    }, 3000);
   }
 }
