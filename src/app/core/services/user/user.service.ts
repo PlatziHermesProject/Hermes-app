@@ -5,7 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-  constructor() { }
+  constructor(
+  ) { }
 
   getJwt(): string {
     if (localStorage.getItem('token')) {
@@ -15,7 +16,6 @@ export class UserService {
   }
 
   getValueTokenKey(key?: string, jwt?: string) {
-
     if (!jwt) {
         jwt = this.getJwt();
     }
