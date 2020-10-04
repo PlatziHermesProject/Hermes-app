@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Apollo } from 'apollo-angular';
-import { Router } from '@angular/router';
 import gql from 'graphql-tag';
 
 @Injectable({
@@ -20,8 +19,7 @@ export class AuthService {
   `;
 
   constructor(
-    private apollo: Apollo,
-    private router: Router
+    private apollo: Apollo
   ) { }
 
   login_graphql(emailAuth: string, passwordAuth: string): any {
@@ -34,17 +32,7 @@ export class AuthService {
     });
   };
 
-  signIn(email: string, password: string): void {
-    this.login_graphql(email, password)
-      .subscribe(({ data: { loginAccount }}) => {
-        if (loginAccount.token) {
-          localStorage.setItem('token', loginAccount.token);
-          this.router.navigate(['/write']);
-        }
-      })
-  }
-
-  get_token(): void {
+  get_user(): void {
     localStorage.getItem('token');
   }
 

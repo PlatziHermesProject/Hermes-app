@@ -4,6 +4,8 @@ import { WriteRoutingModule } from './write-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 import { WriteComponent } from './components/write/write.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { CoreModule } from '../../core/core.module';
+
 
 @NgModule({
   declarations: [WriteComponent],
@@ -12,7 +14,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     WriteRoutingModule,
     SharedModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    CoreModule
   ],
 })
 export class WriteModule {}

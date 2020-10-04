@@ -164,6 +164,13 @@
           background-color: $tertiaryBlue;
           color: $white;
         }
+        &:disabled {
+          outline: none;
+          transform: scale(0.95);
+          background-color: gray;
+          color: $white;
+          border: 1px solid $white;
+        }
     }
     & span {
       @extend .text;

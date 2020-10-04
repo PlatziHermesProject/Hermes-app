@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../../../../core/services/auth/auth.service';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -9,10 +15,15 @@ import { AuthService } from '../../../../core/services/auth/auth.service';
 })
 export class LoginComponent implements OnInit {
   section = 'login';
+  horizontalPosition: MatSnackBarHorizontalPosition = 'end';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
   form: FormGroup;
+
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private _snackBar: MatSnackBar,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -24,8 +35,23 @@ export class LoginComponent implements OnInit {
     if (this.form.valid) {
       const email = this.emailField.value;
       const password = this.passwordField.value;
-      this.authService.signIn(email, password);
+      this.authService.login_graphql(email, password)
+      .subscribe(({ data: { loginAccount }}) => {
+        if (loginAccount.token) {
+          this.openSnackBar(loginAccount.message);
+          localStorage.setItem('token', loginAccount.token);
+          this.router.navigate(['/write']);
+        }
+      })
     }
+  }
+
+  openSnackBar(message: string): any {
+    this._snackBar.open(message, 'x', {
+      duration: 3000,
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+    });
   }
 
   buildForm(): void {
@@ -40,4 +66,5 @@ export class LoginComponent implements OnInit {
   get passwordField(): string | any {
     return this.form.get('password');
   }
+
 }
