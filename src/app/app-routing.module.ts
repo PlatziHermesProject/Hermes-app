@@ -2,6 +2,7 @@ import { LayoutComponent } from './pages/layout/components/layout/layout.compone
 import { NotFoundComponent } from './pages/not-found/components/not-found/not-found.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { AuthGuard } from './core/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
       },
       {
         path: 'feel-bad',
+        canActivate: [AuthGuard],
         loadChildren: () =>
           import('./pages/feel-bad/feel-bad.module').then(
             (m) => m.FeelBadModule
@@ -27,21 +29,25 @@ const routes: Routes = [
       },
       {
         path: 'chat',
+        canActivate: [AuthGuard],
         loadChildren: () =>
           import('./pages/chat/chat.module').then((m) => m.ChatModule),
       },
       {
         path: 'inbox',
+        canActivate: [AuthGuard],
         loadChildren: () =>
           import('./pages/inbox/inbox.module').then((m) => m.InboxModule),
       },
       {
         path: 'write',
+        canActivate: [AuthGuard],
         loadChildren: () =>
           import('./pages/write/write.module').then((m) => m.WriteModule),
       },
       {
         path: 'profile',
+        canActivate: [AuthGuard],
         loadChildren: () =>
           import('./pages/profile/profile.module').then((m) => m.ProfileModule),
       },

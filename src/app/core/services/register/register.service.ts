@@ -19,14 +19,14 @@ export class RegisterService {
 
   constructor(private apollo: Apollo) { }
 
-  submitRegister(emailService: string, passwordService: string, nameService: string): any{
+  submitRegister(emailAuth: string, passwordAuth: string, nameAuth: string): any{
     return this.apollo.mutate({
       mutation: this.mutation,
       variables: {
-        email: emailService,
-        password: passwordService,
-        name: nameService
+        email: emailAuth,
+        password: passwordAuth,
+        name: nameAuth
       }
     });
-  }
+  };
 }

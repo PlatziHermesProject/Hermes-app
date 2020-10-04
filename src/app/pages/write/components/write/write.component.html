@@ -1,4 +1,4 @@
-<form class="form">
+<form class="form" (ngSubmit)="createLetter($event)" [formGroup]="form">
   <h1 class="form__title">How was your day?</h1>
   <section class="form__letter">
     <section class="letter__header">
@@ -6,17 +6,18 @@
       <h2 class="letter__header--name">C</h2>
     </section>
     <section class="letter__content">
-      <label for="feeling">Write your message</label>
+      <label for="feeling" *ngIf="!textField.hasError('required')">Write your message</label>
+      <span *ngIf="textField.hasError('required')">Please write your message</span>
       <textarea
       name="feeling"
       id="feeling"
-      form="inputForm"
+      formControlName="text"
       placeholder="Write here"
       ></textarea>
     </section>
   </section>
   <section class="form__footer">
-    <button class="btn" type="submit">send</button>
+    <button class="btn" [disabled]="form.invalid">send</button>
     <span>Send</span>
   </section>
 </form>

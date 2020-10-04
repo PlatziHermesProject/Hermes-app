@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RegisterService } from '../../services/register.service';
+import { RegisterService } from '../../../../core/services/register/register.service';
 import { Router } from '@angular/router';
 
 
@@ -35,8 +35,6 @@ export class RegisterComponent implements OnInit {
             console.log(createAccount.message) :
             (console.log(createAccount.message),
             this.router.navigate(['/inbox']));
-        }, (error: any) => {
-          console.log('Error', error);
         });
     }
   }
