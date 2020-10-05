@@ -1,25 +1,79 @@
+import { ProfileService } from './../../../../core/services/profile/profile.service';
+import { UserService } from './../../../../core/services/user/user.service';
 import { Component, OnInit } from '@angular/core';
 import { InboxService } from '../../../../core/services/inbox/inbox.service';
 
 @Component({
   selector: 'app-inbox',
   templateUrl: './inbox.component.html',
-  styleUrls: ['./inbox.component.scss']
+  styleUrls: ['./inbox.component.scss'],
 })
 export class InboxComponent implements OnInit {
-
   letter: any = {};
-  constructor(private inbox: InboxService) { }
+  text: string;
+  name: any;
+  constructor(
+    private inbox: InboxService,
+    private userService: UserService,
+    private profileService: ProfileService
+  ) {}
 
   ngOnInit(): void {
-    this.inbox.getLetters()
-      .valueChanges
-      .subscribe(({ data: { getLetters }}) => {
+    this.getName();
+    this.nextCard();
+  }
+  nextCard(): void {
+    this.inbox
+      .getLetters()
+      .valueChanges.subscribe(({ data: { getLetters } }) => {
         const max = getLetters && getLetters.length + 1;
-        const letter_id = (Math.random() * (max - 1) + 1).toFixed(0);
-        this.letter = getLetters && getLetters[letter_id];
-        // console.log(this.letter);
-      })
+        const letterId = (Math.random() * (max - 1) + 1).toFixed(0);
+        this.letter = getLetters && getLetters[letterId];
+        console.log(this.letter);
+      });
+  }
+  reply(): void {
+    this.openModal();
+  }
+  openModal(): void {
+    const modal = document.getElementById('replyModal');
+    modal.style.display = 'block';
+  }
+  closeModal(): void {
+    const modal = document.getElementById('replyModal');
+    modal.style.display = 'none';
+  }
+  sendMessage(content): void {
+    if (content != null) {
+      const user = this.userService.getValueTokenKey('user_id');
+      const letterId = this.letter.letter_id;
+      const name = this.name;
+      this.inbox
+        .replyLetter(content, user, letterId, name)
+        .subscribe(({ data: { replyLetter } }) => {
+          console.log({ replyLetter });
+          this.closeModal();
+        });
+    } else {
+      this.openSnackBar('Write something');
+    }
+  }
+  getName(): any {
+    const user = this.userService.getValueTokenKey('user_id');
+    this.profileService
+      .getUserVars(user)
+      .valueChanges.subscribe((result: any) => {
+        this.name = result.data && result.data.getUserInfo.name;
+      });
   }
 
+  openSnackBar(message: string): any {
+    console.log({ message });
+    const snackbar = document.getElementById('snackbar');
+    snackbar.innerHTML = message;
+    snackbar.className = 'show';
+    setTimeout(() => {
+      snackbar.className = snackbar.className.replace('show', '');
+    }, 3000);
+  }
 }
