@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { WriteService } from './../../../../core/services/write/write.service';
 import { UserService } from './../../../../core/services/user/user.service';
+import { ProfileService } from './../../../../core/services/profile/profile.service';
 
 @Component({
   selector: 'app-write',
@@ -10,23 +11,34 @@ import { UserService } from './../../../../core/services/user/user.service';
 })
 export class WriteComponent implements OnInit {
   form: FormGroup;
+  name: any;
   constructor(
     private formBuilder: FormBuilder,
     private writeService: WriteService,
-    private userService: UserService
+    private userService: UserService,
+    private profileService: ProfileService
   ) {}
 
   ngOnInit(): void {
     this.buildForm();
+    this.getName();
+  }
+  
+  getName(): any{
+    const user = this.userService.getValueTokenKey("user_id");
+    this.profileService.getUserVars(user)
+      .valueChanges
+      .subscribe((result: any) => {
+        this.name = result.data && result.data.getUserInfo.name;
+      });
   }
 
   createLetter(event: Event): void {
     const user = this.userService.getValueTokenKey('user_id');
-    const name = 'Yasare';
     const content = this.textField.value;
     event.preventDefault();
     this.writeService
-      .addLetter(user, name, content)
+      .addLetter(user, this.name, content)
       .subscribe(({ data: { createLetter } }) => {
         this.textField.reset();
         this.openSnackBar(createLetter.message);
