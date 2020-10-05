@@ -21,10 +21,28 @@ export class InboxService {
     }
   `;
 
+  replys = gql`
+    query($user_id: ID!){
+      getUserReplies(user_id: $user_id){
+        letter_id
+        content
+        author_letter
+      }
+    }
+  `;
+
   getLetters(): any{
     return this.apollo.watchQuery({
       query: this.letters
     })
   }
 
+  getMyReplys(userId: number):any {
+    return this.apollo.watchQuery({
+      query: this.replys,
+      variables: {
+        user_id: userId
+      }
+    });
+  }
 }
