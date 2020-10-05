@@ -1,81 +1,144 @@
 @import "../../../../../styles.scss";
 
-h1{
-   @extend .title;
-   margin: 0.3em 0 0.2em;
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-.people{
-   width: 13em;
-   height: calc(100% - 2em);
-   background-color: $white;
-   // border: 1px solid $tertiaryBlue;
-   overflow-y: auto;
-   @media screen and (max-width: 480px) and (orientation: portrait){
-      padding: 2em;
-      height: auto;
-      width: calc(100% - 4em);
-   }
-   @media screen and (max-width: 480px) and (orientation: landscape){
-      padding: 2em;
-      height: auto;
-      width: calc(100% - 4em);
-   }
-   @media screen and (max-width: 768px) and (orientation: portrait){
-      padding: 2em;
-      height: calc(100vh - 7em);
-      max-height: calc(100vh - 7em);
-      width: calc(100% - 4em);
-   }
-   @media screen and (max-width: 768px) and (orientation: landscape){
-      padding: 2em;
-      height: auto;
-      width: calc(100% - 4em);
-   }
-   @media screen and (min-width: 768px) and (max-width: 1199px) and (orientation: portrait) {
-      padding: 2em;
-      height: calc(100vh - 7em);
-      width: calc(100% - 4em);
-   }
-   @media screen and (min-width: 768px) and (max-width: 1199px) and (orientation: landscape)  {
-      margin: calc(auto + 220px );
-      padding: 2em;
-   }
-   &__btn{
-      border: none;
-      background-color: $white;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      padding: 1em;
-      border-bottom: 0.5px solid $tertiaryBlue;
-      transition: background 0.2s, color 0.2s;
-      & img{
-         width: 3em;
-      }
-      & span{
-         color: $tertiaryBlue;
-         font-family: $fontArchivo;
-         margin-left: 0.5em;
-         font-size: 1.3em;
-      };
-      &:focus,
-      &:active{
-         @extend .active;
-         outline: none;
-         background-color: $tertiaryBlue;
-         border-bottom: 0.5px solid $white;
-         & span{
-            color: $white;
-         }
-      }
-   }
-   & .active{
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+h1 {
+  @extend .title;
+  margin: 0.3em 0 0.2em;
+}
+:host {
+  height: 100%;
+}
+.people {
+  width: 13em;
+  height: calc(100% - 2em);
+  background-color: $white;
+  // border: 1px solid $tertiaryBlue;
+  overflow-y: auto;
+  @media screen and (max-width: 480px) and (orientation: portrait) {
+    padding: 2em;
+    height: auto;
+    width: calc(100% - 4em);
+  }
+  @media screen and (max-width: 480px) and (orientation: landscape) {
+    padding: 2em;
+    height: auto;
+    width: calc(100% - 4em);
+  }
+  @media screen and (max-width: 768px) and (orientation: portrait) {
+    padding: 2em;
+    height: calc(100vh - 7em);
+    max-height: calc(100vh - 7em);
+    width: calc(100% - 4em);
+  }
+  @media screen and (max-width: 768px) and (orientation: landscape) {
+    padding: 2em;
+    height: auto;
+    width: calc(100% - 4em);
+  }
+  @media screen and (min-width: 768px) and (max-width: 1199px) and (orientation: portrait) {
+    padding: 2em;
+    height: calc(100vh - 7em);
+    width: calc(100% - 4em);
+  }
+  @media screen and (min-width: 768px) and (max-width: 1199px) and (orientation: landscape) {
+    margin: calc(auto + 220px);
+    padding: 2em;
+  }
+  &__btn {
+    border: none;
+    background-color: $white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    border-bottom: 0.5px solid $tertiaryBlue;
+    transition: background 0.2s, color 0.2s;
+    & img {
+      width: 3em;
+    }
+    & span {
+      color: $tertiaryBlue;
+      font-family: $fontArchivo;
+      margin-left: 0.5em;
+      font-size: 1.3em;
+    }
+    &:focus,
+    &:active {
+      @extend .active;
       outline: none;
       background-color: $tertiaryBlue;
       border-bottom: 0.5px solid $white;
-      & span{
-         color: $white;
+      & span {
+        color: $white;
       }
-   }
+    }
+  }
+  & .active {
+    outline: none;
+    background-color: $tertiaryBlue;
+    border-bottom: 0.5px solid $white;
+    & span {
+      color: $white;
+    }
+  }
+}
+
+// / RESPONSIVE
+//    ========================================================================= /
+@media (min-width: 1024px) and (max-width: 1199px) {
+}
+// / Horizontal tablets and normal desktops
+@media (min-width: 768px) and (max-width: 1023px) {
+  .people {
+    height: 85%;
+    h1 {
+      text-align: center;
+    }
+  }
+}
+// / Horizontal mobiles or vertical tablets
+@media (max-width: 767px) {
+  .people {
+    height: 85%;
+    h1 {
+      text-align: center;
+    }
+  }
+}
+// / Vertical mobiles
+@media (max-width: 480px) {
+  :host {
+    width: 100%;
+    height: 150px;
+  }
+  .people {
+    max-height: 77px;
+    display: flex;
+    overflow-x: scroll;
+    &__btn {
+      border: none;
+
+      span {
+        display: none;
+      }
+    }
+  }
 }
