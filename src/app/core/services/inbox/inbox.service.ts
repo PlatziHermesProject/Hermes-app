@@ -3,14 +3,15 @@ import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class InboxService {
-  constructor(private apollo: Apollo) {}
+
+  constructor(private apollo: Apollo) { }
 
   letters = gql`
     query {
-      getLetters {
+      getLetters{
         user_id
         letter_id
         content
@@ -19,7 +20,6 @@ export class InboxService {
       }
     }
   `;
-
   reply = gql`
     mutation(
       $content: String!
@@ -38,12 +38,18 @@ export class InboxService {
         message
       }
     }
+  `
+;
+
+  replys = gql`
+    query($user_id: ID!){
+      getUserReplies(user_id: $user_id){
+        letter_id
+        content
+        author_letter
+      }
+    }
   `;
-  getLetters(): any {
-    return this.apollo.watchQuery({
-      query: this.letters,
-    });
-  }
 
   replyLetter(
     $content: string,
@@ -59,6 +65,21 @@ export class InboxService {
         letter_id: $letterId,
         name: $name,
       },
+    });
+  }
+
+  getLetters(): any{
+    return this.apollo.watchQuery({
+      query: this.letters
+    })
+  }
+
+  getMyReplys(userId: number):any {
+    return this.apollo.watchQuery({
+      query: this.replys,
+      variables: {
+        user_id: userId
+      }
     });
   }
 }
