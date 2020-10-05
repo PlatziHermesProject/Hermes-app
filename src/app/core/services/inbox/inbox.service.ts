@@ -74,7 +74,7 @@ export class InboxService {
     })
   }
 
-  getMyReplys(userId: number):any {
+  getMyReplys(userId: Number):any {
     return this.apollo.watchQuery({
       query: this.replys,
       variables: {

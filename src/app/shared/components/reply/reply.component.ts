@@ -9,5 +9,8 @@ export class ReplyComponent implements OnInit {
 	@Input() item;
 	constructor() {}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		console.log(this.item[0]);
+		
+	}
 }

@@ -20,10 +20,7 @@ export class ResponsesComponent implements OnInit {
     this.inbox.getMyReplys(user)
       .valueChanges
       .subscribe(({data: { getUserReplies }}) => {
-        this.items = [
-          ...this.items,
-          getUserReplies
-        ]
+        this.items = getUserReplies;
       })
   }
 
