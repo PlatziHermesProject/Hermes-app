@@ -36,8 +36,7 @@
           />
         </div>
         <div class="form__group">
-          <label for="password">Password</label>
-          <a href="">Forgot your password?</a> <br />
+          <label for="password">Password</label> <br />
           <span *ngIf="passwordField.errors && passwordField.dirty">
             <span class="form__error" *ngIf="passwordField.hasError('required')"
               >Please write your password</span
@@ -50,20 +49,8 @@
             formControlName="password"
           />
         </div>
-        <label class="form__switch">
-          <input id="switch" type="checkbox" class="form__switch--checkbox" />
-          <span class="form__switch--slider-round"></span>
-        </label>
-        <label for="switch" class="form__rememberMe">Remember me</label>
         <button class="form__button" [disabled]="form.invalid">Sign in</button>
       </form>
-      <div class="form__otherOptions">
-        <hr class="form__otherOptions--left" />
-        <span>or sign in with</span>
-        <hr class="form__otherOptions--right" />
-      </div>
-      <button class="form__button--facebook">Facebook</button>
-      <button class="form__button--google">Google</button>
     </section>
   </div>
 </section>
