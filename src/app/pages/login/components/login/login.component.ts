@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
           if (loginAccount.token) {
             this.openSnackBar(loginAccount.message);
             localStorage.setItem('token', loginAccount.token);
-            // this.router.navigate(['/write']);
+            this.router.navigate(['/write']);
           } else {
             this.openSnackBar(loginAccount.message);
           }
