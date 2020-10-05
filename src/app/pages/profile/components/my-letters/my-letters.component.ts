@@ -29,7 +29,7 @@ export class MyLettersComponent implements OnInit {
 			.watchQuery<any>({
 				query: this.profileService.letters,
 				variables: {
-					user_id: 7,
+					user_id: user,
 				},
 			})
 			.valueChanges.pipe(map((result: any) => result.data.getUserLetters)));

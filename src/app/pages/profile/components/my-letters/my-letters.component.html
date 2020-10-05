@@ -1,6 +1,9 @@
 <section class="letters">
 	<h2>My Letters</h2>
-	<section class="letters__content" *ngFor="let item of items">
-		<app-letter [item]="item"></app-letter>
+	<h3 *ngIf="items.length === 0">No hay items</h3>
+	<section class="letters__content" *ngIf="items.length > 0">
+		<div *ngFor="let item of items">
+			<app-letter [item]="item"></app-letter>
+		</div>
 	</section>
 </section>

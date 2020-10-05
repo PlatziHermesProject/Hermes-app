@@ -3,7 +3,7 @@
   <section class="form__letter">
     <section class="letter__header">
       <img src="../../../../assets/images/User.svg" alt="User" />
-      <h2 class="letter__header--name">C</h2>
+      <h2 class="letter__header--name">{{ name }}</h2>
     </section>
     <section class="letter__content">
       <label for="feeling" *ngIf="!textField.hasError('required')"
