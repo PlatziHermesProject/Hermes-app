@@ -10,14 +10,23 @@
     <h1>Hermes</h1>
   </a>
   <section class="header__options">
-    <figure
-      class="header__options--notifications"
+    <div
+      class="header__options--buttons"
       *ngIf="
         section !== 'landing' && section !== 'login' && section !== 'register'
       "
     >
-      <i class="material-icons">notifications</i>
-    </figure>
+      <a
+        class="buttons__profile"
+        [routerLink]="['/profile']"
+        routerLinkActive="router-link-active"
+        ><figure>
+          <img src="assets/images/User.svg" alt="" /></figure
+      ></a>
+      <button class="buttons__exit" (click)="logout()">
+        <span><i class="material-icons">exit_to_app</i></span>
+      </button>
+    </div>
     <ul *ngIf="section === 'landing'">
       <li class="header__options--whatIs">
         <a

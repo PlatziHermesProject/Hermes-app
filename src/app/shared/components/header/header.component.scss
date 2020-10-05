@@ -57,14 +57,39 @@
         }
       }
     }
-    &--notifications {
-      display: flex;
+    &--buttons {
+      display: none;
       align-items: center;
       width: 80%;
       height: 40px;
       justify-content: flex-end;
-      img {
-        max-width: 30px;
+      .buttons__exit {
+        background-color: $strongBlue;
+        border: none;
+        margin-left: 15px;
+        span {
+          i {
+            color: $white;
+          }
+        }
+        &:hover {
+          span i {
+            color: $pink;
+          }
+        }
+      }
+      .buttons__profile {
+        height: 100%;
+        display: grid;
+        place-items: center;
+        width: 50px;
+        figure {
+          width: 30px;
+          margin: unset;
+          img {
+            max-width: 100%;
+          }
+        }
       }
     }
     &--goToApp {
@@ -78,6 +103,23 @@
     }
     &--menu {
       display: none;
+    }
+  }
+}
+@media (max-width: 768px) {
+  .header {
+    &__options {
+      &--buttons {
+        display: flex;
+        .buttons__exit {
+          width: 25px;
+        }
+        .buttons__profile {
+          figure {
+            width: 25px;
+          }
+        }
+      }
     }
   }
 }
@@ -97,6 +139,19 @@
             }
           }
         }
+      }
+      &--buttons {
+        .buttons__exit {
+          width: 25px;
+        }
+        .buttons__profile {
+          figure {
+            width: 25px;
+          }
+        }
+      }
+      &--exit {
+        display: flex;
       }
       &--whatIs {
         display: none;

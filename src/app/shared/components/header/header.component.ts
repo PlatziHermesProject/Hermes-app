@@ -1,4 +1,6 @@
+import { AuthService } from './../../../core/services/auth/auth.service';
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Input() section: string;
-  constructor() {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     console.log(this.section);
@@ -17,5 +19,9 @@ export class HeaderComponent implements OnInit {
     console.log('sideMenu');
     const showMenu = document.querySelector('ul');
     showMenu.classList.toggle('showMenu');
+  }
+  logout(): void {
+    this.authService.logout();
+    this.router.navigate(['/landing']);
   }
 }
