@@ -3,13 +3,12 @@ import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RegisterService {
-
   mutation = gql`
-    mutation ($email: String!, $password: String!, $name: String!){
-      createAccount(email: $email, password: $password, name: $name){
+    mutation($email: String!, $password: String!, $name: String!) {
+      createAccount(email: $email, password: $password, name: $name) {
         status
         code
         message
@@ -17,16 +16,20 @@ export class RegisterService {
     }
   `;
 
-  constructor(private apollo: Apollo) { }
+  constructor(private apollo: Apollo) {}
 
-  submitRegister(emailAuth: string, passwordAuth: string, nameAuth: string): any{
+  submitRegister(
+    emailAuth: string,
+    passwordAuth: string,
+    nameAuth: string
+  ): any {
     return this.apollo.mutate({
       mutation: this.mutation,
       variables: {
         email: emailAuth,
         password: passwordAuth,
-        name: nameAuth
-      }
+        name: nameAuth,
+      },
     });
-  };
+  }
 }

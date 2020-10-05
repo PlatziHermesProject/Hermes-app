@@ -2,8 +2,10 @@
   <h1 class="inbox__title">Your messages</h1>
   <section class="inbox__letter">
     <section class="letter__header">
-      <img src="../../../../assets/images/User.svg" alt="User">
-      <h2 class="letter__header--name">{{ letter.author_letter }}</h2>
+      <img src="../../../../assets/images/User.svg" alt="User" />
+      <h2 class="letter__header--name">
+        {{ letter.author_letter | uppercase }}
+      </h2>
     </section>
     <section class="letter__content">
       <p>
@@ -13,16 +15,30 @@
   </section>
   <section class="inbox__footer">
     <section class="btn">
-      <button class="btn__style">favorite</button>
+      <button class="btn__style" (click)="reactLetter()">favorite</button>
       <span>React</span>
     </section>
     <section class="btn">
-      <button class="btn__style">quickreply</button>
+      <button class="btn__style" (click)="reply()">quickreply</button>
       <span>Reply</span>
     </section>
     <section class="btn">
-      <button class="btn__style">report</button>
-      <span>Report</span>
-    </section>    
+      <button class="btn__style" (click)="nextCard()">navigate_next</button>
+      <span>Next</span>
+    </section>
   </section>
 </section>
+
+<!-- The Modal -->
+<div id="replyModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <h2>Write your reply</h2>
+    </div>
+    <div class="modal-body">
+      <textarea [(ngModel)]="text"></textarea>
+      <button (click)="sendMessage(text)">Send</button>
+    </div>
+  </div>
+</div>
