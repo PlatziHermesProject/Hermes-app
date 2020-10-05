@@ -35,7 +35,7 @@
           color: $blue;
           font-weight: bold;
           width: 75%;
-          margin-top: 15%;
+          margin-top: 40%;
           margin-bottom: 0;
         }
         &__subtitle {
@@ -214,7 +214,7 @@
         width: 150%;
         .form {
           &__title {
-            margin-top: 25%;
+            margin-top: 45%;
           }
         }
       }
@@ -233,6 +233,7 @@
         .form {
           &__title {
             line-height: 3rem;
+            margin-top: 25%;
           }
           &__group {
             a {
@@ -252,8 +253,10 @@
 // / Horizontal mobiles or vertical tablets
 @media (max-width: 767px) {
   .register {
-    height: calc(180vh - 3rem);
+    height: calc(107vh - 3rem);
     &__card {
+      height: 80%;
+      margin-top: 5%;
       &--image {
         display: none;
       }
@@ -262,6 +265,7 @@
         .form {
           &__title {
             line-height: 3rem;
+            margin-top: 5%;
           }
           &__group {
             a {
@@ -281,7 +285,7 @@
 // / Vertical mobiles
 @media (max-width: 480px) {
   .register {
-    height: calc(100vh - 3rem);
+    height: calc(104vh - 3rem);
     &__card {
       &--image {
         display: none;
@@ -291,6 +295,7 @@
         .form {
           &__title {
             line-height: 3rem;
+            margin-top: 40%;
           }
           &__group {
             a {
