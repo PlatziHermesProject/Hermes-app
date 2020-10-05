@@ -44,18 +44,19 @@ export class InboxComponent implements OnInit {
     modal.style.display = 'none';
   }
   sendMessage(content): void {
-    const user = this.userService.getValueTokenKey('user_id');
-    const letterId = this.letter.letter_id;
-    const name = this.name;
-    this.inbox
-      .replyLetter(content, user, letterId, name)
-      .subscribe(({ data: { replyLetter } }) => {
-        console.log({ replyLetter });
-        this.closeModal();
-      });
-  }
-  reactLetter(): void {
-    console.log('dasdas');
+    if (content != null) {
+      const user = this.userService.getValueTokenKey('user_id');
+      const letterId = this.letter.letter_id;
+      const name = this.name;
+      this.inbox
+        .replyLetter(content, user, letterId, name)
+        .subscribe(({ data: { replyLetter } }) => {
+          console.log({ replyLetter });
+          this.closeModal();
+        });
+    } else {
+      this.openSnackBar('Write something');
+    }
   }
   getName(): any {
     const user = this.userService.getValueTokenKey('user_id');
@@ -64,5 +65,15 @@ export class InboxComponent implements OnInit {
       .valueChanges.subscribe((result: any) => {
         this.name = result.data && result.data.getUserInfo.name;
       });
+  }
+
+  openSnackBar(message: string): any {
+    console.log({ message });
+    const snackbar = document.getElementById('snackbar');
+    snackbar.innerHTML = message;
+    snackbar.className = 'show';
+    setTimeout(() => {
+      snackbar.className = snackbar.className.replace('show', '');
+    }, 3000);
   }
 }
