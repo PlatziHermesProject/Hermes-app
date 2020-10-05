@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { PeopleService } from 'src/app/core/services/people/people.service';
+import { UserService } from 'src/app/core/services/user/user.service';
 
 @Component({
   selector: 'app-people',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PeopleComponent implements OnInit {
 
+  @Input() people = [];
+  @Output() chatId: EventEmitter<number> = new EventEmitter();
+
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit() { }
 
+  onClick(chat_id: number) {
+    console.log('En el componente hijo', chat_id);
+    this.chatId.emit(chat_id);
+  }
 }

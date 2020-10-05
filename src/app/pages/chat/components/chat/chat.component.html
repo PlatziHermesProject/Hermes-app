@@ -1,8 +1,15 @@
 <section class="content">
-  <app-people></app-people>
+
+  <app-people [people]="people" (chatId)="getChat($event)"></app-people>
+
   <section class="content__chat">
     <section class="chat__messages">
-      <section class="chat__messages--from">
+      <section class="chat__messages--from" *ngFor="let resp of chatDetail">
+        <img src="../../../../../assets/images/User.svg" alt="User">
+        <p style="color: white;">{{resp.content}}</p>
+        <p class="time">{{resp.created | date}}</p>
+      </section>
+      <!-- <section class="chat__messages--from">
         <img src="../../../../../assets/images/User.svg" alt="User">
         <p>Hola como estas, yo muy bien</p>
         <p class="time">Date</p>
@@ -31,7 +38,7 @@
         <p class="time">Date</p>
         <p>Hola, yo muy bien y tu como estas</p>
         <img src="../../../../../assets/images/User.svg" alt="User">
-      </section>
+      </section> -->
     </section>
     <input type="text" class="chat__input" placeholder="Write your message">
   </section>

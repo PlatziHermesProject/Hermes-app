@@ -2,9 +2,14 @@
 <section class="people">
   <button
     class="people__btn"
-    *ngFor="let people of [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]"
+    *ngFor="let single of people"
+    (click)="onClick(single.chat_id)"
   >
-    <img src="../../../../../assets/images/User.svg" alt="User" />
-    <span>X</span>
+    <img
+      src="../../../../../assets/images/User.svg"
+      alt="User"
+    />
+    <label>{{single.name}}</label>
+    <!-- <span>X</span> -->
   </button>
 </section>
