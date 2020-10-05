@@ -9,11 +9,22 @@ export class InboxService {
 
   constructor(private apollo: Apollo) { }
 
-  getLetters = gql`
+  letters = gql`
     query {
       getLetters{
+        user_id
         letter_id
+        content
+        author_letter
+        avatar
       }
     }
   `;
+
+  getLetters(): any{
+    return this.apollo.watchQuery({
+      query: this.letters
+    })
+  }
+
 }
