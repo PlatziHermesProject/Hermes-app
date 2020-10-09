@@ -1,7 +1,29 @@
 <section class="content">
-  <user-info></user-info>
-  <section class="content__sections">
-    <my-letters></my-letters>
-    <app-responses></app-responses>
+  <section class="profile">
+    <img src="./../../../../../assets/images/User.svg" alt="Imagen" class="profile__image">
+    <section class="profile__data">
+      <h1>{{ userName }}</h1>
+      <p>{{ userEmail }}</p>
+    </section>
+  </section>
+  <section class="responses">
+    <section class="letters">
+      <h2 class="letters__title">My Letters</h2>
+      <h3 *ngIf="letter.length === 0">No hay items</h3>
+      <section class="letters__content" *ngIf="letter.length > 0">
+        <div *ngFor="let item of letter">
+          <app-letter [item]="item"></app-letter>
+        </div>
+      </section>
+    </section>
+    <section class="replies">
+      <h2 class="replies__title">My replies</h2>
+      <h3 *ngIf="replies.length === 0">No hay items</h3>
+      <section class="replies__content" *ngIf="replies.length > 0">
+        <div *ngFor="let item of replies">
+          <app-reply [item]="item"></app-reply>
+        </div>
+      </section>
+    </section>    
   </section>
 </section>

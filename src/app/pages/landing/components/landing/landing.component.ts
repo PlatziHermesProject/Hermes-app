@@ -60,4 +60,8 @@ export class LandingComponent implements OnInit {
     console.log('Go login');
     this.router.navigate(['/login']);
   }
+
+  goNotion(): void{
+    window.location.href = "https://www.notion.so/Hermes-Team-d119d2dee4a84a45abbc593d48cbbfa5";
+  }
 }

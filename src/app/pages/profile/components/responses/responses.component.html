@@ -1,9 +1,0 @@
-<section class="replies">
-	<h2 class="replies__title">My replies</h2>
-	<h3 *ngIf="items.length === 0">No hay items</h3>
-	<section class="replies__content" *ngIf="items.length > 0">
-		<div *ngFor="let item of items">
-			<app-reply [item]="item"></app-reply>
-		</div>
-	</section>
-</section>

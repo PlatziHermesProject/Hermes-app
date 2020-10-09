@@ -4,12 +4,9 @@ import { CommonModule } from '@angular/common';
 
 import { ProfileRoutingModule } from './profile-routing.module';
 import { SharedModule } from '../../shared/shared.module';
-import { UserInfoComponent } from './components/user-info/user-info.component';
-import { MyLettersComponent } from './components/my-letters/my-letters.component';
-import { ResponsesComponent } from './components/responses/responses.component';
 
 @NgModule({
-  declarations: [ProfileComponent, UserInfoComponent, MyLettersComponent, ResponsesComponent],
+  declarations: [ProfileComponent],
   imports: [CommonModule, ProfileRoutingModule, SharedModule],
 })
 export class ProfileModule {}
